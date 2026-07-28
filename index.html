@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admit Card Finder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Exam Services - 2026</p>
+        <h1>Download Your Admit Card</h1>
+        <p class="lede">Enter your admit card number to view only your admit card, verify the details, and download it instantly.</p>
+      </div>
+      <div class="hero-actions">
+        <div class="badge">Secure - Fast</div>
+        <a class="btn btn--ghost" href="BA-3-year-NEP.pdf" download>Download B.A. 3rd Year NEP PDF</a>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <p class="eyebrow">Search</p>
+            <h2>Find Admit Card</h2>
+          </div>
+          <span class="pill" id="result-count">0 matches</span>
+        </div>
+
+        <form id="search-form" class="form" autocomplete="off">
+          <div class="field">
+            <label for="admit-number">Admit Card Number</label>
+            <input id="admit-number" name="admitNumber" type="text" inputmode="numeric" placeholder="e.g. 230441030001" />
+          </div>
+          <button type="submit" class="btn" id="search-btn">Search</button>
+        </form>
+
+        <p class="hint">Enter the complete admit card number printed on your exam form.</p>
+      </section>
+
+      <section class="panel results" aria-live="polite" aria-busy="false">
+        <div class="panel__header">
+          <div>
+            <p class="eyebrow">Results</p>
+            <h2>Admit Cards</h2>
+          </div>
+          <div class="status" id="status">Awaiting search</div>
+        </div>
+
+        <div id="cards" class="cards"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__brand">
+        <h3>Admit Card Desk</h3>
+        <p class="muted">Secure access to exam credentials with instant downloads and verification-first search.</p>
+      </div>
+      <div class="footer__links">
+        <a href="#search-form">Search</a>
+        <a href="BA-3-year-NEP.pdf" download>NEP PDF</a>
+        <a href="#">Support</a>
+      </div>
+      <div class="footer__meta">
+        <p>Copyright 2026 Exam Services - All rights reserved.</p>
+        <p class="muted">Need help? Email support@example.com</p>
+      </div>
+    </footer>
+  </div>
+
+  <template id="card-template">
+    <article class="card">
+      <div class="card__body">
+        <div class="card__top">
+          <div>
+            <p class="eyebrow">Admit Card No.</p>
+            <p class="roll"></p>
+          </div>
+          <span class="tag">Verified</span>
+        </div>
+        <h3 class="name"></h3>
+        <p class="exam"></p>
+        <dl class="meta">
+          <div>
+            <dt>Registration</dt>
+            <dd class="registration"></dd>
+          </div>
+          <div>
+            <dt>College</dt>
+            <dd class="center"></dd>
+          </div>
+          <div>
+            <dt>Session</dt>
+            <dd class="session"></dd>
+          </div>
+          <div>
+            <dt>Category</dt>
+            <dd class="category"></dd>
+          </div>
+        </dl>
+      </div>
+      <div class="card__footer">
+        <p class="fineprint">Carry a valid photo ID. Arrive 45 minutes early.</p>
+        <button class="btn btn--ghost download">Download admit card</button>
+      </div>
+    </article>
+  </template>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
